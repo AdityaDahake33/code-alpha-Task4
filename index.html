@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snort NIDS Project | CodeAlpha Task 4</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="NIDS.css">
+</head>
+<body>
+  <header>
+    <h1>🚨 Snort NIDS Project – CodeAlpha Task 4</h1>
+    <p>Setting up Network Intrusion Detection on Ubuntu & Testing with Kali Linux</p>
+    <button class="theme-btn" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
+  </header>
+
+  <section>
+    <h2>🔧 Tools Used</h2>
+    <ul>
+      <li>Ubuntu (Snort setup)</li>
+      <li>Kali Linux (Attacker simulation)</li>
+      <li>Snort</li>
+      <li>Gedit (Config editing)</li>
+    </ul>
+  </section>
+
+  <section class="steps">
+    <h2>🧠 Setup Steps</h2>
+    <ol>
+      <li>
+        <strong>Install Gedit:</strong><br>
+        <code>sudo apt install gedit</code>
+        <div class="screenshot-box">
+          <img src="image/gedit.png" alt="Install Gedit Screenshot">
+        </div>
+      </li>
+      <li>
+        <strong>Install Snort:</strong><br>
+        <code>sudo apt-get install snort -y</code>
+        <div class="screenshot-box">
+          <img src="image/snort_download.png" alt="Install Snort Screenshot">
+        </div>
+      </li>
+      <li>
+        <strong>Edit snort.conf:</strong><br>
+        <code>sudo gedit /etc/snort/snort.conf</code><br>
+        Replace <code>ipvar HOME_NET any</code> with your Ubuntu IP:
+        <div class="highlight">ipvar HOME_NET 192.168.x.x</div>
+        <div class="screenshot-box">
+          <img src="image/HOME_NET.png" alt="Edit Snort Config Screenshot">
+        </div>
+      </li>
+      <li>
+        <strong>Test Configuration:</strong><br>
+        <code>sudo snort -T -c /etc/snort/snort.conf -i ens33</code>
+        <div class="screenshot-box">
+          <img src="image/snort_check.png" alt="Test Snort Config Screenshot">
+        </div>
+      </li>
+      <li>
+        <strong>Run Snort in Live Mode:</strong><br>
+        <code>sudo snort -A console -q -u snort -g snort -c /etc/snort/snort.conf -i ens33</code>
+        <div class="screenshot-box">
+          <img src="image/Snort_on.png" alt="Snort Live Mode Screenshot">
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>💣 Attack Simulation with Kali Linux</h2>
+    <p>I used the following Nmap commands from Kali Linux to scan the Ubuntu target:</p>
+    <code>nmap -sN [Ubuntu IP]</code><br>
+    <code>nmap -Pn [Ubuntu IP]</code>
+    <p class="highlight">✅ Snort successfully detected these scans and triggered alerts in the terminal.</p>
+    <div class="screenshot-box">
+      <img src="image/kali.png" alt="Nmap Attack Screenshot">
+    </div>
+  </section>
+
+  <footer>
+    <p>Made by Aditya Dahake | CodeAlpha Cybersecurity Intern – June 2025</p>
+  </footer>
+  <script src ="NIDS.js"></script>
+</body>
+</html>
