@@ -5,13 +5,9 @@ This project documents the full process of setting up a **Network-Based Intrusio
 
 ---
 
-## 📌 Objective
+## 📌 Live Link
 
-✅ Install and configure Snort on Ubuntu as a NIDS  
-✅ Monitor live traffic and detect intrusions  
-✅ Simulate real attacks using Kali Linux  
-✅ Validate intrusion alerts and logging
-
+View : https://adityadahake33.github.io/code-alpha-Task4/
 ---
 
 ## 🧠 Steps to Set Up Snort for NIDS on Ubuntu
